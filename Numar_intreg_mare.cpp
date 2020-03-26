@@ -10,6 +10,19 @@ Numar_intreg_mare::Numar_intreg_mare(const Numar_intreg_mare &other): semn(other
 
 }
 
+Numar_intreg_mare::Numar_intreg_mare(int k)
+{
+    if(k<0) semn=-1;
+    else if(k==0) semn=0;
+    else semn=+1;
+    while(k!=0)
+    {
+        cifre.push_back(k%10);
+        k=k/10;
+    }
+
+}
+
 
 std::string Numar_intreg_mare::tostr()
 {
@@ -120,10 +133,10 @@ short int compar(Numar_intreg_mare a, Numar_intreg_mare b, bool abs)
 
     while(a.cifre.size()!=0)
     {
-        if(a.cifre.front() > b.cifre.front()) return ret;
-        if(a.cifre.front() < b.cifre.front()) return -1*ret;
-        a.cifre.pop_front();
-        b.cifre.pop_front();
+        if(a.cifre.back() > b.cifre.back()) return ret;
+        if(a.cifre.back() < b.cifre.back()) return -1*ret;
+        a.cifre.pop_back();
+        b.cifre.pop_back();
     }
 
 
@@ -274,6 +287,61 @@ Numar_intreg_mare Numar_intreg_mare::operator*(const Numar_intreg_mare nr)
 {
 
     Numar_intreg_mare rez;
+
+    Numar_intreg_mare a=*this;
+
+    Numar_intreg_mare b=nr;
+
+    short int rem=0;
+
+
+    if(b.cifre.size()==1)
+    {
+        rez.cifre.clear();
+        while(a.cifre.size()!=0)
+        {
+
+            rez.cifre.push_back((rem+a.cifre.front()*nr.cifre.back())%10);
+            rem=(rem+a.cifre.front()*nr.cifre.back())/10;
+
+            a.cifre.pop_front();
+        }
+
+        if(rem!=0) rez.cifre.push_back(rem);
+
+    }
+
+
+   else if(compar(nr,Numar_intreg_mare(10),0)==0)
+    {
+        rez.cifre = a.cifre;
+        rez.cifre.push_front(0);
+    }
+
+    else
+    {
+        int k=0;
+        while(!b.cifre.empty())
+        {
+
+            Numar_intreg_mare t;
+
+            t=a*Numar_intreg_mare(b.cifre.front());
+
+            for(int i=0; i<k; i++)
+            {
+                t=t*Numar_intreg_mare(10);
+            }
+
+            b.cifre.pop_front();
+
+            k++;
+
+            rez=rez+t;
+        }
+    }
+
+    rez.semn=semn*nr.semn;
 
     return rez;
 

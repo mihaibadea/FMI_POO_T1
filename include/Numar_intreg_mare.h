@@ -13,6 +13,7 @@ class Numar_intreg_mare
         ~Numar_intreg_mare()=default;
         Numar_intreg_mare(const Numar_intreg_mare& other);
         std::string tostr();
+        Numar_intreg_mare(int k);
         Numar_intreg_mare operator+(const Numar_intreg_mare nr);
         Numar_intreg_mare operator-(const Numar_intreg_mare nr);
         Numar_intreg_mare operator*(const Numar_intreg_mare nr);

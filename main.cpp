@@ -36,15 +36,36 @@ int main()
 
     cin>>V2;
 
-    cout<<"Maximul elementelor din V1 este: "<<V1.maxim(0)<<'\n';
+    try{
 
-    cout<<"Modulul maxim al elementelor din V1 e al numarului: "<<V1.maxim(1)<<'\n';
+        cout<<"Maximul elementelor din V1 este: "<<V1.maxim(0)<<'\n';
 
-    cout<<"Maximul elementelor din V2 este: "<<V2.maxim(0)<<'\n';
+        cout<<"Modulul maxim al elementelor din V1 e al numarului: "<<V1.maxim(1)<<'\n';
+    }
+    catch(char const* k)
+    {
+        cout<<k<<'\n';
+    }
 
-    cout<<"Modulul maxim al elementelor din V2 e al numarului: "<<V2.maxim(1)<<'\n';
+    try
+    {
+        cout<<"Maximul elementelor din V2 este: "<<V2.maxim(0)<<'\n';
 
-    cout<<"Produsul scalar dintre V1 si V2 este: "<<V1*V2<<'\n';
+        cout<<"Modulul maxim al elementelor din V2 e al numarului: "<<V2.maxim(1)<<'\n';
+    }
+    catch(char const* k)
+    {
+        cout<<k<<'\n';
+    }
+
+    try{
+        cout<<"Produsul scalar dintre V1 si V2 este: "<<V1*V2<<'\n';
+    }
+
+    catch(char const* k)
+    {
+        cout<<k<<'\n';
+    }
 
 
 

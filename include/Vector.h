@@ -25,3 +25,4 @@ class Vector
 };
 
 #endif // VECTOR_H
+

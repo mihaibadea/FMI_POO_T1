@@ -16,6 +16,8 @@ Vector& Vector::operator=(const Vector& rhs)
 
 Numar_intreg_mare Vector::maxim(bool abs)
 {
+    if(v.size()==0) throw("Eroare: Vector nul");
+
     Numar_intreg_mare rez;
     rez = v[0];
     for(int i=1; i<v.size(); i++)
@@ -58,6 +60,8 @@ std::istream& operator>>(std::istream& in, Vector &t)
 
 Numar_intreg_mare Vector::operator*(const Vector t)
 {
+    if(v.size()!=t.v.size() || v.size()==0) throw("Eroare: Produs nedefinit");
+
     Numar_intreg_mare rez;
 
     for(int i=0; i<v.size();i++)

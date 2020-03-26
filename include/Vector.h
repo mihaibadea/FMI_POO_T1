@@ -8,8 +8,8 @@
 class Vector
 {
     public:
-        Vector();
-        virtual ~Vector();
+        Vector() = default;
+        ~Vector() = default;
         Vector(const Vector& other);
         Vector& operator=(const Vector& other);
         Numar_intreg_mare maxim(bool abs);

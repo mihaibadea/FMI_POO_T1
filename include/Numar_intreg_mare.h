@@ -10,7 +10,7 @@ class Numar_intreg_mare
 {
     public:
         Numar_intreg_mare();
-        virtual ~Numar_intreg_mare();
+        ~Numar_intreg_mare()=default;
         Numar_intreg_mare(const Numar_intreg_mare& other);
         std::string tostr();
         Numar_intreg_mare operator+(const Numar_intreg_mare nr);

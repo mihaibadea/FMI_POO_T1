@@ -1,18 +1,9 @@
 #include "Vector.h"
 
-Vector::Vector()
+
+Vector::Vector(const Vector& other): v(other.v)
 {
 
-}
-
-Vector::~Vector()
-{
-
-}
-
-Vector::Vector(const Vector& other)
-{
-    v=other.v;
 }
 
 Vector& Vector::operator=(const Vector& rhs)

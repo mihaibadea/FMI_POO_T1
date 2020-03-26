@@ -1,21 +1,15 @@
 #include "Numar_intreg_mare.h"
 
-Numar_intreg_mare::Numar_intreg_mare()
-{
-    semn=0;
-    cifre.push_back(0);
-}
-
-Numar_intreg_mare::Numar_intreg_mare(const Numar_intreg_mare &other)
-{
-    semn=other.semn;
-    cifre=other.cifre;
-}
-
-Numar_intreg_mare::~Numar_intreg_mare()
+Numar_intreg_mare::Numar_intreg_mare() : semn(0), cifre({})
 {
 
 }
+
+Numar_intreg_mare::Numar_intreg_mare(const Numar_intreg_mare &other): semn(other.semn), cifre(other.cifre)
+{
+
+}
+
 
 std::string Numar_intreg_mare::tostr()
 {
@@ -38,21 +32,18 @@ std::string Numar_intreg_mare::tostr()
 
 std::ostream& operator<<(std::ostream& out, const Numar_intreg_mare &nr)
 {
-    //de pupat cu tostr()
-    std::string k="";
+    Numar_intreg_mare tmp;
 
+    tmp=nr;
 
-    for(auto i : nr.cifre)
+    if(tmp.semn==-1) out<<'-';
+
+    while(!tmp.cifre.empty())
     {
-        char c = i + '0';
-        k= k + c;
+        out<<tmp.cifre.back();
+        tmp.cifre.pop_back();
     }
 
-    reverse(k.begin(), k.end());
-
-    if(nr.semn == -1) k = '-' + k;
-
-    out<<k;
     return out;
 }
 

@@ -216,7 +216,7 @@ Numar_intreg_mare Numar_intreg_mare::operator+(const Numar_intreg_mare nr)
 
             sum.cifre.push_back((10+a-b-rem)%10);
 
-            if(a<b) rem=1;
+            if(a<(b+rem)) rem=1;
             else rem=0;
 
             if(ita!=cifre.end()) ita++;
@@ -245,7 +245,7 @@ Numar_intreg_mare Numar_intreg_mare::operator+(const Numar_intreg_mare nr)
 
             sum.cifre.push_back((10+b-a-rem)%10);
 
-            if(b<a) rem=1;
+            if(b<(a+rem)) rem=1;
             else rem=0;
 
             if(ita!=cifre.end()) ita++;
